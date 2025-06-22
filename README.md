@@ -1,35 +1,77 @@
 # 🎬 Hybrid Movie Recommendation System
 
-A hybrid movie recommender system that combines **content-based filtering** and **collaborative filtering** to generate personalized movie recommendations. Built with **Python**, **Pandas**, **Scikit-learn**, and deployed using **Streamlit**.
+This project presents a **Hybrid Movie Recommendation System** that combines both **Collaborative Filtering** and **Content-Based Filtering** techniques. The goal is to enhance the accuracy, personalization, and diversity of movie suggestions by leveraging the strengths of both approaches.
 
 ---
 
-## 🚀 Features
+## 🔍 Project Overview
 
-- 🔄 **Hybrid Filtering**: Combines genre-based (content) and user-rating-based (collaborative) filtering.
-- 📊 **Cosine Similarity**: Calculates similarity between movies and users.
-- 🎛️ **Tunable Weights**: Adjustable sliders for content vs. collaborative influence.
-- 💻 **Interactive UI**: Built using Streamlit for real-time recommendation generation.
-- 📂 **Uses MovieLens-style Dataset**: Reads from `movies.dat`, `ratings.dat`, and `users.dat`.
+Recommender systems have become essential in today’s digital platforms, helping users navigate large volumes of content. However, single-method recommenders often suffer from limitations such as cold-start problems or a lack of personalization.
 
----
+This project tackles these challenges by integrating:
 
-## 🛠️ Tech Stack
+- **Collaborative Filtering**, which recommends movies based on user-user or item-item similarity using rating patterns.
+- **Content-Based Filtering**, which recommends movies by analyzing metadata like genres and titles.
 
-- Python 3.x  
-- Pandas  
-- Scikit-learn  
-- Streamlit
+The **hybrid approach** balances these two methods, ensuring users receive relevant suggestions even when limited data is available.
 
 ---
 
-## 📂 Project Structure
+## 🎯 Objectives
 
-├── app.py # Streamlit application
-├── hybrid_model.py # Hybrid recommendation logic
-├── hybrid_movie_recommender.ipynb # Jupyter Notebook version
-├── requirements.txt # Project dependencies
-├── data/
-│ ├── movies.dat
-│ ├── ratings.dat
-│ └── users.dat
+- Build a robust movie recommendation system using MovieLens dataset
+- Integrate collaborative and content-based filtering
+- Provide real-time suggestions through a user-friendly web interface
+- Address cold-start and sparsity problems inherent in recommendation systems
+
+---
+
+## 🛠️ Technologies Used
+
+- **Python**
+- **Pandas, NumPy, Scikit-learn**
+- **Streamlit** – for interactive web interface
+- **MovieLens Dataset (100k, .dat format)**
+
+---
+
+## 💡 Methodology
+
+### 1. **Data Preprocessing**
+- Loaded and parsed `movies.dat`, `ratings.dat`, and `users.dat` files
+- Merged datasets to associate movie genres and user preferences with ratings
+
+### 2. **Content-Based Filtering**
+- Vectorized genres using `TfidfVectorizer`
+- Calculated cosine similarity between movies based on genre vectors
+- Recommended movies similar to the user’s previously rated items
+
+### 3. **Collaborative Filtering**
+- Created a user-item matrix from ratings
+- Utilized cosine similarity to find similar users
+- Predicted ratings using neighbors' preferences
+
+### 4. **Hybrid Recommender**
+- Combined the content and collaborative recommendations using weighted average scores
+- Allowed configurable weights to control balance between methods
+
+### 5. **Web Interface with Streamlit**
+- Developed an interactive web app using Streamlit
+- Users select a movie, and receive hybrid recommendations in real-time
+- Displayed top N recommended movies with titles and genres
+
+---
+
+## 📊 Results
+
+- Successfully delivered personalized recommendations for a wide range of users
+- The hybrid model outperformed individual methods in terms of diversity and relevance
+- Solved cold-start problem partially through content-based layer
+
+---
+
+## 🙋 Author
+
+Mohsin Ali
+Data Scientist | AI Consultant
+GitHub: @mohsinali08000
